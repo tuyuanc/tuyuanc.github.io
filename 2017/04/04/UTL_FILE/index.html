@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="这么远那么近" />
+  <meta name="keywords" content="PL/SQL,Oracle," />
 
 
 
@@ -87,15 +87,22 @@
 
 
 
-<meta name="description" content="我不怕迷茫彷徨，只怕虚度这好时光">
-<meta property="og:type" content="website">
-<meta property="og:title" content="这么远那么近">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="UTL_FILE介绍可以对文件读取和写入，可以通过参数 utl_file_dir 来设置 pl/sql 访问文件的路径，出于安全考虑可以通过创建 directory 以及授予对 directory 权限来进行访问文件。
+使用 UTL_FILE 的步骤– 创建目录create or replace directory your_directory as&amp;apos;d:/text&amp;apos;;
+– 授">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PL/SQL 中，UTL_FILE 包的使用介绍">
+<meta property="og:url" content="http://yoursite.com/2017/04/04/UTL_FILE/index.html">
 <meta property="og:site_name" content="这么远那么近">
-<meta property="og:description" content="我不怕迷茫彷徨，只怕虚度这好时光">
+<meta property="og:description" content="UTL_FILE介绍可以对文件读取和写入，可以通过参数 utl_file_dir 来设置 pl/sql 访问文件的路径，出于安全考虑可以通过创建 directory 以及授予对 directory 权限来进行访问文件。
+使用 UTL_FILE 的步骤– 创建目录create or replace directory your_directory as&amp;apos;d:/text&amp;apos;;
+– 授">
+<meta property="og:updated_time" content="2017-04-04T07:06:14.642Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="这么远那么近">
-<meta name="twitter:description" content="我不怕迷茫彷徨，只怕虚度这好时光">
+<meta name="twitter:title" content="PL/SQL 中，UTL_FILE 包的使用介绍">
+<meta name="twitter:description" content="UTL_FILE介绍可以对文件读取和写入，可以通过参数 utl_file_dir 来设置 pl/sql 访问文件的路径，出于安全考虑可以通过创建 directory 以及授予对 directory 权限来进行访问文件。
+使用 UTL_FILE 的步骤– 创建目录create or replace directory your_directory as&amp;apos;d:/text&amp;apos;;
+– 授">
 
 
 
@@ -123,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/04/04/UTL_FILE/"/>
 
 
 
 
 
-  <title> 这么远那么近 </title>
+  <title> PL/SQL 中，UTL_FILE 包的使用介绍 | 这么远那么近 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -154,9 +161,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -259,9 +264,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -291,10 +296,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2017/04/04/UTL_FILE/" itemprop="url">
-                  PL/SQL 中，UTL_FILE 包的使用介绍
-                </a>
+                PL/SQL 中，UTL_FILE 包的使用介绍
               
             
           </h1>
@@ -367,343 +369,120 @@
       
 
       
-        
-          
-          UTL_FILE介绍可以对文件读取和写入，可以通过参数 utl_file_dir 来设置 pl/sql 访问文件的路径，出于安全考虑可以通过创建 directory 以及授予对 directory 权限来进行访问文件。
-使用 UTL_FILE 的步骤– 创建目录create or replace d
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/04/04/UTL_FILE/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+        <h2 id="UTL-FILE介绍"><a href="#UTL-FILE介绍" class="headerlink" title="UTL_FILE介绍"></a>UTL_FILE介绍</h2><p>可以对文件读取和写入，可以通过参数 utl_file_dir 来设置 pl/sql 访问文件的路径，出于安全考虑可以通过创建 directory 以及授予对 directory 权限来进行访问文件。</p>
+<h2 id="使用-UTL-FILE-的步骤"><a href="#使用-UTL-FILE-的步骤" class="headerlink" title="使用 UTL_FILE 的步骤"></a>使用 UTL_FILE 的步骤</h2><h3 id="–-创建目录"><a href="#–-创建目录" class="headerlink" title="– 创建目录"></a>– 创建目录</h3><pre><code>create or replace directory your_directory as&apos;d:/text&apos;;
+</code></pre><h3 id="–-授权"><a href="#–-授权" class="headerlink" title="– 授权"></a>– 授权</h3><pre><code>grant read, write on directory your_directory to your_role;
+</code></pre><h3 id="–-从-SQL-查询写入到数据文件"><a href="#–-从-SQL-查询写入到数据文件" class="headerlink" title="– 从 SQL 查询写入到数据文件"></a>– 从 SQL 查询写入到数据文件</h3><pre><code>DECLARE  
+ vsfile   UTL_FILE.file_type;
+
+  BEGIN  
+ vsfile :=UTL_FILE.fopen (&apos;your_directory&apos;, 
+                          &apos;hello.txt&apos;,  
+                             &apos;W&apos;,  
+                          500);  
+
+ FOR i IN (SELECT t.name || &apos;,&apos; || t.age AS msg
+             FROM your_table t )  
+ LOOP  
+        UTL_FILE.put_line (vsfile, i.msg);   
+ END LOOP;
+
+ UTL_FILE.fflush (vsfile);  
+ UTL_FILE.fclose (vsfile);  
+  END;
+</code></pre><h3 id="–-从数据文件读入并写入到表"><a href="#–-从数据文件读入并写入到表" class="headerlink" title="– 从数据文件读入并写入到表"></a>– 从数据文件读入并写入到表</h3><pre><code> DECLARE 
+ vsfile  UTL_FILE.file_type;  
+ vnewline  VARCHAR2 (200);
+  BEGIN  
+ vsfile := UTL_FILE.fopen (&apos;your_directory&apos;,&apos;hello.txt&apos;,&apos;r&apos;);  
+
+ IF UTL_FILE.is_open (vsfile)  
+ THEN  
+LOOP  
+   BEGIN  
+  UTL_FILE.get_line (vsfile, vnewline); 
+
+  IF vnewline IS NULL  
+  THEN  
+     EXIT;  
+  END IF;  
+
+  INSERT INTO table_name (name)
+   VALUES (vnewline);  
+   EXCEPTION  
+      WHEN NO_DATA_FOUND  
+  THEN  
+     EXIT;  
+   END;  
+END LOOP;  
+
+    COMMIT;  
+ END IF;  
+
+ UTL_FILE.fclose (vsfile); 
+</code></pre>
       
     </div>
 
     <div>
       
+        
+
+      
     </div>
 
     <div>
+      
+        
+
       
     </div>
 
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/24/localhost/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="T">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="这么远那么近">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/24/localhost/" itemprop="url">
-                  127.0.0.1 和 localhost 和 本机IP 的区别
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-24T22:58:46+08:00">
-                2017-03-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Network/" itemprop="url" rel="index">
-                    <span itemprop="name">Network</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/PL-SQL/" rel="tag"># PL/SQL</a>
           
-
+            <a href="/tags/Oracle/" rel="tag"># Oracle</a>
           
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
         
-          
-          127.0.0.1127.0.0.1 是环回地址，用于向自身发送通信的一个特殊地址。如果可以 ping 通的话，本机的网卡和   IP 协议都好的。
-localhostlocalhost 是一个域名，就是类似于百度谷歌（www.什么什么的）这种。在 hosts 文件中配置了127.0.0.1 给 l
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/24/localhost/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/24/localhost/" rel="next" title="127.0.0.1 和 localhost 和 本机IP 的区别">
+                <i class="fa fa-chevron-left"></i> 127.0.0.1 和 localhost 和 本机IP 的区别
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
 
-    <div>
-      
-    </div>
+          <span class="post-nav-divider"></span>
 
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/21/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="T">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="这么远那么近">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+          <div class="post-nav-prev post-nav-item">
             
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/21/hello-world/" itemprop="url">
-                  Hello World
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-21T13:10:03+08:00">
-                2017-03-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Diary/" itemprop="url" rel="index">
-                    <span itemprop="name">Diary</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in 
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/21/hello-world/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
           
           </div>
@@ -711,6 +490,22 @@ localhostlocalhost 是一个域名，就是类似于百度谷歌（www.什么什
 
 
           
+  <div class="comments" id="comments">
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: document.location.href, 
+    sourceId: "",
+    productKey: "8460e064c15c4d15a421a2ce7e40e27b",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+  
+  
+    
+  </div>
+
 
         </div>
         
@@ -730,8 +525,17 @@ localhostlocalhost 是一个域名，就是类似于百度谷歌（www.什么什
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -800,6 +604,22 @@ localhostlocalhost 是一个域名，就是类似于百度谷歌（www.什么什
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#UTL-FILE介绍"><span class="nav-number">1.</span> <span class="nav-text">UTL_FILE介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-UTL-FILE-的步骤"><span class="nav-number">2.</span> <span class="nav-text">使用 UTL_FILE 的步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#–-创建目录"><span class="nav-number">2.1.</span> <span class="nav-text">– 创建目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#–-授权"><span class="nav-number">2.2.</span> <span class="nav-text">– 授权</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#–-从-SQL-查询写入到数据文件"><span class="nav-number">2.3.</span> <span class="nav-text">– 从 SQL 查询写入到数据文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#–-从数据文件读入并写入到表"><span class="nav-number">2.4.</span> <span class="nav-text">– 从数据文件读入并写入到表</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -913,6 +733,10 @@ localhostlocalhost 是一个域名，就是类似于百度谷歌（www.什么什
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
